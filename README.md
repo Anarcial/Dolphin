@@ -1,4 +1,4 @@
 # Dolphin
-Dolphin Project - Implements a wallet manager
+Dolphin Project - Simple robo-advisor
 
 Using Jump's API to get needed data

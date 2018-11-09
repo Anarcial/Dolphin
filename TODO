@@ -1,0 +1,14 @@
+- API and network Framework :
+  - Retrieve data
+  - Send wallet
+
+- Manager :
+  - Find algo
+  - Implement maths functions
+    -> Cov OK
+    -> Sharpe
+  - Implement algo
+    -> Base Classes
+    -> AssetCcategory : need to subcategorise the other categories depending on
+    their cov. In the class or global array?
+
