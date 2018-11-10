@@ -5,7 +5,7 @@ import java.util.Iterator;
 public final class Utils {
   public Utils() {}
 
-  public int cov(List<Price> x, List<Price> y)
+  public static int cov(List<Price> x, List<Price> y)
   {
     if (x.size() != y.size())
       return -2;
@@ -30,4 +30,15 @@ public final class Utils {
 
     return (sum / (double) x.size());
   }
+
+  public static ArrayList<Pair<double, AssetCategory>>
+    insert_sort(ArrayList<Pair<double, AssetCategory>> list) {
+      while (int i = 1; i < list.size(); ++i) {
+        double cur = list.get(i);
+        int j = i-1;
+        while (j >= 0 && list.get(j) > cur; --j)
+          list.set(j+1, list.get(j));
+        list.set(j+1, cur);
+      }
+    }
 }

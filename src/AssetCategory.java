@@ -1,11 +1,12 @@
 import java.util.Map;
 import java.util.Pair;
 
-//FIXME : need to class the other categories
 
 public class AssetCategory {
 
   public Map<JumpValue,Asset> assets_;
+
+  public ArrayList<Pair<double, AssetCategory>> counterparts_;
 
   public AssetCategory(Asset a) {
     assets_ = new HashMap<>();
@@ -18,5 +19,9 @@ public class AssetCategory {
 
   public Asset get(JumpValue id) {
     return assets_.get(id);
+  }
+
+  public void counterparts_add(double cov, AssetCategory ac) {
+    counterparts_.add(new Pair<cov, ac>);
   }
 }
