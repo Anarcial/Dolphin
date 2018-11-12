@@ -1,7 +1,8 @@
 - API and network Framework :
   - Retrieve data
   - Send wallet
-
+  - Database with all Assets and prices
+  
 - Manager :
   - Find algo
   - Implement maths functions

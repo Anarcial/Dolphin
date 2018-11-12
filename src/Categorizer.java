@@ -20,8 +20,13 @@ public final class Categorizer {
     for (Iterator<Asset> it = assets_.iterator(); it.hasNext();) {
       Asset a = it.next();
       AssetCategory cat = categorization(a);
-      if (cat != null)
+      if (cat != null) {
         categoies_.add(cat);
+        for (Iterator<AssetCategory> it = categories_.iterator(); it.hasNext();) {
+          AssetCategory ac = it.next();
+          ac.counterparts_add(Utils.cov(/*FIXME : get cat & ac prices*/), ac);
+        }
+      }
     }
     for (Iterator<AssetCategory> it = categories_.iterator(); it.hasNext();) {
       AssetCategory cat = it.next();

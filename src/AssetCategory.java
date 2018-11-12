@@ -23,7 +23,7 @@ public class AssetCategory {
   }
 
   public void counterparts_add(double cov, AssetCategory ac) {
-    counterparts_.add(new Pair<cov, ac>);
+    counterparts_.add(new Pair<double, AssetCategory>(cov, ac));
   }
 
   public void counterparts_sort() {
