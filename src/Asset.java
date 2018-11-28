@@ -23,6 +23,8 @@ public final class Asset {
 
   public Double sharpe_;
   public Double return_;
+  public Double vol_;
+  public List<> cots_;
   private AssetCategory cat_;
 
   public AssetCategory cat_get() { return cat_; }

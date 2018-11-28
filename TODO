@@ -8,10 +8,11 @@
   - Implement maths functions
     -> Cov OK
     -> InsertSort OK
-    -> Sharpe (OK)
+    -> Sharpe OK (just check units)
 
   - Implement algo
-    -> Base Classes
+    -> Base Classes :
+      -> Asset : need to fill the last needed elements
     -> AssetCategory OK
     -> Categorizer OK
     -> PortfolioGenerator OK
