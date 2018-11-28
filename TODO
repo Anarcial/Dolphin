@@ -8,10 +8,12 @@
   - Implement maths functions
     -> Cov OK
     -> InsertSort OK
-    -> Sharpe
+    -> Sharpe (OK)
+
   - Implement algo
     -> Base Classes
     -> AssetCategory OK
-    -> Categorizer OK (still needs to have some thoughts given though)
-    -> Explorer
+    -> Categorizer OK
+    -> PortfolioGenerator OK
+    -> Evaluator (currently being worked on)
     -> Composition

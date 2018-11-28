@@ -1,29 +1,34 @@
 import java.util.Map;
-import java.util.Pair;
+import javafx.util.Pair;
+import java.util.HashMap;
+import java.util.ArrayList;
 
+/*
+ * Class representing a category of Assets.
+ * */
 
 public class AssetCategory {
 
-  public Map<JumpValue,Asset> assets_;
-  public ArrayList<Pair<double, AssetCategory>> counterparts_;
+  public ArrayList<Asset> assets_;
+  public ArrayList<Pair<Double, AssetCategory>> counterparts_;
   private JumpValue id_first_;
 
   public AssetCategory(Asset a) {
-    assets_ = new HashMap<>();
-    assets_.put(a.id_, a);
+    assets_ = new ArrayList<>();
+    assets_.add(a);
     id_first_ = a.id_;
   }
 
-  public add(Asset a) {
-    assets_.put(a.id_, a);
+  public void add(Asset a) {
+    assets_.add(a);
   }
 
-  public Asset get(JumpValue id) {
-    return assets_.get(id);
+  public Asset get(int i) {
+    return assets_.get(i);
   }
 
   public void counterparts_add(double cov, AssetCategory ac) {
-    counterparts_.add(new Pair<double, AssetCategory>(cov, ac));
+    counterparts_.add(new Pair<>(cov, ac));
   }
 
   public void counterparts_sort() {

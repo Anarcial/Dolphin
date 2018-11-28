@@ -2,21 +2,14 @@ import java.util.ArrayList;
 
 public final class Node {
   
-  private ArrayList<Node> sons_;
-  private Asset ass_;
-  private double sharpe_;
+  public Node next_;
+  public Asset ass_;
+  public int nb_;
 
-  public Node(Asset ass, double sharpe) {
+
+  public Node(Asset ass, int nb) {
     ass_ = ass;
-    sharpe_ = sharpe;
-    sons_ = ArrayList();
+    nb_ = nb;
+    next_ = null;
   }
-
-  public ArrayList<Node> sons_get() { return sons_; }
-  public Node son_get(int i) { return sons_.get(i); }
-  public Asset ass_get() { return ass_: }
-  public double sharpe_get() { return sharpe_; }
-
-
-  public void sons_add(Node n) { sons_.add(n); } 
 }

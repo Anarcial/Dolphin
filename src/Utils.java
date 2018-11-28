@@ -1,11 +1,13 @@
 import java.lang.Math;
 import java.util.List;
 import java.util.Iterator;
+import javafx.util.Pair;
+import java.util.ArrayList;
 
 public final class Utils {
   private Utils() {}
 
-  public static int cov(List<Price> x, List<Price> y)
+  public static double cov(List<Price> x, List<Price> y)
   {
     if (x.size() != y.size())
       return -2;
@@ -31,15 +33,19 @@ public final class Utils {
     return (sum / (double) x.size());
   }
 
-  public static ArrayList<Pair<double, AssetCategory>>
-    insert_sort(ArrayList<Pair<double, AssetCategory>> list) {
-      while (int i = 1; i < list.size(); ++i) {
-        double cur = list.get(i).getKey();
-        int j = i-1;
-        while (j >= 0 && list.get(j).getKey() > cur; --j)
-          list.set(j+1, list.get(j));
-        list.set(j+1, cur);
-      }
-      return list;
+  public static ArrayList<Pair<Double, AssetCategory>>
+  insert_sort(ArrayList<Pair<Double, AssetCategory>> list) {
+    for (int i = 1; i < list.size(); ++i) {
+      Double cur = list.get(i).getKey();
+      int j = i-1;
+      for (;j >= 0 && list.get(j).getKey() > cur; --j)
+        list.set(j+1, list.get(j));
+      list.set(j+1, list.get(i));
     }
+    return list;
+  }
+
+  public static double sharpe(Double ret, Double vol) {
+    return ((ret - 0.05) / vol);
+  }
 }
