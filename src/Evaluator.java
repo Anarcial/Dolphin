@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.lang.Math;
 
+/**
+ * Possible optimizations :
+ * Check how near are 2 portfolios :
+ * if same : don't evaluate the second one
+ * if near : can only delete the non-existent assets from covs[][]
+ */
+
 public class Evaluator {
     private ArrayList<ArrayList<Asset>> portfolios_;
     private double[][] covs_;

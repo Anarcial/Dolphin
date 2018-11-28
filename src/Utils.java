@@ -1,6 +1,3 @@
-import java.lang.Math;
-import java.util.List;
-import java.util.Iterator;
 import javafx.util.Pair;
 import java.util.ArrayList;
 
