@@ -2,6 +2,22 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.ArrayList;
 
+/**
+ * Class PortfolioGenerator
+ * Generates all needed portfolios from a pool of assets.
+ * Only generates seemingly most promising portfolios, based on some criteria:
+ *  - Sharpe Scope : All assets must have there sharpe over a certain minimum
+ *  - Return : as long as in sharpe scope, best return wins
+ *
+ *  To speed up the process, we use categories of assets.
+ *  Assets with a near covariance are regrouped in a same class.
+ *  Then when creating the portfolio, for each asset it wants to add, it
+ *  searches for its best counterpart by iterating on the category that was
+ *  classified as the one with the farthest covariance.
+ *  This allows to decrease the portfolio volatility, increasing its sharpe,
+ *  without having to test each and every combination of assets.
+ */
+
 public class PortfoliosGenerator {
   private ArrayList<AssetCategory> categories_;
 

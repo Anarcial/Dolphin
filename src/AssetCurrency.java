@@ -1,5 +1,3 @@
-import com.google.gson.annotations.SerializedName;
-
 public final class AssetCurrency {
   
   public AssetCurrency() {}
@@ -8,6 +6,5 @@ public final class AssetCurrency {
     code_ = code;
   }
 
-  @SerializedName("code")
   public String code_;
 }

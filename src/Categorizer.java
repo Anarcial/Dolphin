@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.lang.Math;
 import java.util.ArrayList;
 
-/*
+/**
+ * Categorizer class.
  * Creates all Assets categories.
  * Assets are categorized by closest covariance.
  * In order to categorize an asset :
@@ -14,8 +15,12 @@ import java.util.ArrayList;
  *   to the one found
  * - Repeat the test with the new category
  * - If no category is found, create a new one with the asset
+ */
+
+/*
+
  *
- * */
+ */
 
 public final class Categorizer {
   
@@ -47,6 +52,13 @@ public final class Categorizer {
       cat.counterparts_sort();
     }
   }
+
+    /**
+     * Determines wether an asset belongs to a category, or needs a new one
+     * @param to_cat
+     * @return the new AssetCategory if to_cat doesn't belong to an existing one
+     * null otherwise
+     */
 
   private AssetCategory categorization(Asset to_cat) {
     HashSet<JumpValue> tested_cat = new HashSet<>();

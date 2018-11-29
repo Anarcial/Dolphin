@@ -1,6 +1,11 @@
 import javafx.util.Pair;
 import java.util.ArrayList;
 
+/**
+ * Class Utils
+ * Regroups needed mathematical and algorithmic tools.
+ */
+
 public final class Utils {
   private Utils() {}
 

@@ -16,5 +16,5 @@
     -> AssetCategory OK
     -> Categorizer OK
     -> PortfolioGenerator OK
-    -> Evaluator (currently being worked on)
-    -> Composition
+    -> Evaluator OK (with opti)
+    -> Composition (working on it)

@@ -1,9 +1,11 @@
 import javafx.util.Pair;
 import java.util.ArrayList;
 
-/*
- * Class representing a category of Assets.
- * */
+
+/**
+ * Class AssetCategory
+ * Represents a category of Assets.
+ */
 
 public class AssetCategory {
 
