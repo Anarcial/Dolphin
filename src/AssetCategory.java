@@ -11,7 +11,7 @@ public class AssetCategory {
 
   public ArrayList<Asset> assets_;
   public ArrayList<Pair<Double, AssetCategory>> counterparts_;
-  private JumpValue id_first_;
+  private Integer id_first_;
 
   public AssetCategory(Asset a) {
     assets_ = new ArrayList<>();
@@ -35,7 +35,7 @@ public class AssetCategory {
     counterparts_ = Utils.insert_sort(counterparts_);
   }
 
-  public JumpValue first_get() {
+  public Integer first_get() {
     return id_first_;
   }
 }

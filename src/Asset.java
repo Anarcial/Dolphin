@@ -3,15 +3,15 @@
  */
 
 public final class Asset {
-  
-  public JumpValue id_;
 
-  public JumpValue label_;
-  
-  public JumpValue price_;
-  public MonetaryNumber monetary_; // FIXME
+  public Asset(int id, Double sharpe, Double vol) {
+    id_ = id;
+    sharpe_ = sharpe;
+    vol_ = vol;
+  }
 
-  public JumpValue typeValue_;
+  public int id_;
+
   public EnumAssetType assetType_;
 
   public Double sharpe_;
