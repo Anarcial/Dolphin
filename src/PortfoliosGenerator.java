@@ -74,7 +74,7 @@ public class PortfoliosGenerator {
 
           for (int i = 0; i < counterpart.assets_.size(); i++)
             if (counterpart.get(i).sharpe_ >= sharpe_scope)
-              if (best != null && best.return_ < counterpart.get(i).return_)
+              if (best == null || best.return_ < counterpart.get(i).return_)
                 best = counterpart.get(i);
 
           if (best != null)

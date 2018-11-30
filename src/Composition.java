@@ -19,6 +19,9 @@ public class Composition {
     }
 
     public ArrayList<Pair<Double, Asset>> compute() {
-
+        ArrayList<Pair<Double, Asset>> portfolio = new ArrayList<>();
+        for (Asset a : portfolio_)
+            portfolio.add(new Pair<>(1./portfolio_.size(), a));
+        return portfolio;
     }
 }

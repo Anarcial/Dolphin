@@ -62,7 +62,7 @@ public class Evaluator {
         ArrayList<Asset> port = portfolios_.get(num_port);
         double ret = 0;
         double var = 0;
-        double weight = 100/nb_asset;
+        double weight = 100./nb_asset;
         for (int i = 0; i < nb_asset; i++) {
             ret += port.get(i).return_/nb_asset;
             for (int j = 0; j < nb_asset; j++) {
