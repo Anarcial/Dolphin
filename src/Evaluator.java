@@ -12,7 +12,6 @@ import java.lang.Math;
 public class Evaluator {
     private ArrayList<ArrayList<Asset>> portfolios_;
     private double[][] covs_;
-    private double SCOPE = 2.;
 
     public Evaluator(ArrayList<ArrayList<Asset>> portfolios) {
         portfolios_ = portfolios;
@@ -38,6 +37,7 @@ public class Evaluator {
                 continue;
             for (int depth = 0; depth < 20; ++depth) {
                 double cur_sharpe = port_sharpe(i, depth);
+                double SCOPE = 2.;
                 if (cur_sharpe < best_sharpe - SCOPE)
                     break;
                 else {
