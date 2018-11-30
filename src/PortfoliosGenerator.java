@@ -1,6 +1,5 @@
-import java.util.List;
-import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Class PortfolioGenerator
@@ -25,13 +24,37 @@ public class PortfoliosGenerator {
         categories_ = categories;
     }
 
-    public ArrayList<ArrayList<Asset>> generate() {
+    private double average(ArrayList<Asset> assets, double limit) {
+        double sum = 0.;
+        double nb = 0.;
+        for (Asset a : assets) {
+            if (a.sharpe_ >= limit) {
+                sum += a.sharpe_;
+                nb++;
+            }
+        }
+        return sum/nb;
+    }
 
-        List<Asset> assets = /* FIXME: Get all assets by Sharpe */;
+    public static ArrayList<Asset>
+    insert_sort(ArrayList<Asset> list) {
+        for (int i = 1; i < list.size(); ++i) {
+            Double cur = list.get(i).sharpe_;
+            int j = i-1;
+            for (;j >= 0 && list.get(j).sharpe_ > cur; --j)
+                list.set(j+1, list.get(j));
+            list.set(j+1, list.get(i));
+        }
+        return list;
+    }
+
+    public ArrayList<ArrayList<Asset>> generate(ArrayList<Asset> p_assets) {
+
+        ArrayList<Asset> assets = insert_sort(p_assets);
         HashSet<Integer> portfolio_ass = new HashSet<>();
         ArrayList<ArrayList<Asset>> portfolios = new ArrayList<>();
-        double average_sharpe = /* sharpe moyen */;
-        double sharpe_scope = /* sharpe moyen actifs dont sharpe > X */;
+        double average_sharpe = average(assets, 0);
+        double sharpe_scope = average(assets, 2);
         double pace = (sharpe_scope - average_sharpe) / 20;
 
         /*

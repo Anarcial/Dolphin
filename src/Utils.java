@@ -9,28 +9,24 @@ import java.util.ArrayList;
 public final class Utils {
   private Utils() {}
 
-  public static double cov(List<Price> x, List<Price> y)
+  public static double cov(ArrayList<Double> x, ArrayList<Double> y)
   {
     if (x.size() != y.size())
       return -2;
 
     double sum = 0;
-    for(Iterator<Price> it = x.iterator(); it.hasNext();) {
-      Price p = it.next();
-      sum += p.nav_;
-    }
+    for(int i = 0; i < x.size(); ++i)
+      sum += x.get(i);
     double xm = sum / (double) x.size();
+
     sum = 0;
-    
-    for (Iterator<Price> it = y.iterator(); it.hasNext();) {
-      Price p = it.next();
-      sum += p.nav_;
-    }
+    for (int i = 0; i < y.size(); ++i)
+      sum += y.get(i);
     double ym = sum / (double) y.size();
 
     sum = 0;
     for (int i = 0; i < x.size(); ++i)
-      sum += (x.get(i).nav_ - xm)*(y.get(i).nav_ - ym);
+      sum += (x.get(i) - xm)*(y.get(i) - ym);
 
     return (sum / (double) x.size());
   }

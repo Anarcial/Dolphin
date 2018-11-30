@@ -67,7 +67,8 @@ public class Composition {
             ret += portfolio.get(i).getValue().return_/20;
             for (int j = 0; j < 20; j++) {
                 if (covs_[i][j] == -2.) {
-                    double tmp = Utils.cov(/* FIXME */);
+                    double tmp = Utils.cov(portfolio.get(i).getValue().cots_,
+                            portfolio.get(j).getValue().cots_);
                     covs_[i][j] = tmp;
                     covs_[j][i] = tmp;
                 }

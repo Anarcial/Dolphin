@@ -67,7 +67,7 @@ public class Evaluator {
             ret += port.get(i).return_/nb_asset;
             for (int j = 0; j < nb_asset; j++) {
                 if (covs_[i][j] == -2.) {
-                    double tmp = Utils.cov(/* FIXME */);
+                    double tmp = Utils.cov(port.get(i).cots_, port.get(j).cots_);
                     covs_[i][j] = tmp;
                     covs_[j][i] = tmp;
                 }
