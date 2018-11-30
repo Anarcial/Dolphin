@@ -54,7 +54,7 @@ public final class Categorizer {
   }
 
     /**
-     * Determines wether an asset belongs to a category, or needs a new one
+     * Determines whether an asset belongs to a category, or needs a new one
      * @param to_cat
      * @return the new AssetCategory if to_cat doesn't belong to an existing one
      * null otherwise
