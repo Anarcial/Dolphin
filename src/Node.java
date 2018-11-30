@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public final class Node {
   
   public Node next_;

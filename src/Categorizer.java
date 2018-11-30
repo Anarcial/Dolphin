@@ -61,7 +61,7 @@ public final class Categorizer {
      */
 
     private AssetCategory categorization(Asset to_cat) {
-        HashSet<JumpValue> tested_cat = new HashSet<>();
+        HashSet<Integer> tested_cat = new HashSet<>();
 
         List<Price> to_cat_p = /* FIXME : retrieve prices */;
         AssetCategory cat = categories_.get(0);

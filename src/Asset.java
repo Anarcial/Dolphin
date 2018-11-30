@@ -3,13 +3,12 @@
  */
 
 public final class Asset {
-
-    public Asset(int id, Double sharpe, Double vol) {
+    
+  public Asset(int id, Double sharpe, Double vol) {
         id_ = id;
         sharpe_ = sharpe;
         vol_ = vol;
     }
-
     public int id_;
 
     public EnumAssetType assetType_;
