@@ -5,11 +5,11 @@
 import java.util.ArrayList;
 
 public final class Asset {
-    
-  public Asset(int id) { id_ = id; }
+
+    public Asset(int id) { id_ = id; }
 
 
-    public int id_;
+    public Integer id_;
     public EnumAssetType assetType_;
 
     public Double sharpe_;

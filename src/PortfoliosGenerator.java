@@ -40,10 +40,12 @@ public class PortfoliosGenerator {
     insert_sort(ArrayList<Asset> list) {
         for (int i = 1; i < list.size(); ++i) {
             Double cur = list.get(i).sharpe_;
+            Asset tmp = list.get(i);
             int j = i-1;
-            for (;j >= 0 && list.get(j).sharpe_ > cur; --j)
-                list.set(j+1, list.get(j));
-            list.set(j+1, list.get(i));
+            for (;j >= 0 && list.get(j).sharpe_ < cur; --j) {
+                list.set(j + 1, list.get(j));
+            }
+            list.set(j+1, tmp);
         }
         return list;
     }
@@ -53,8 +55,8 @@ public class PortfoliosGenerator {
         ArrayList<Asset> assets = insert_sort(p_assets);
         HashSet<Integer> portfolio_ass = new HashSet<>();
         ArrayList<ArrayList<Asset>> portfolios = new ArrayList<>();
-        double average_sharpe = average(assets, 0);
-        double sharpe_scope = average(assets, 2);
+        double average_sharpe = average(assets, -10.);
+        double sharpe_scope = average(assets, 0);
         double pace = (sharpe_scope - average_sharpe) / 20;
 
         /*
@@ -96,9 +98,11 @@ public class PortfoliosGenerator {
                     Asset best = null;
 
                     for (int i = 0; i < counterpart.assets_.size(); i++)
-                        if (counterpart.get(i).sharpe_ >= sharpe_scope)
-                            if (best == null || best.return_ < counterpart.get(i).return_)
+                        if (counterpart.get(i).sharpe_ >= sharpe_scope
+                                && !portfolio_ass.contains(counterpart.get(i).id_))
+                            if (best == null || best.return_ < counterpart.get(i).return_) {
                                 best = counterpart.get(i);
+                            }
 
                     if (best != null)
                         cur_ass = best;
@@ -107,7 +111,7 @@ public class PortfoliosGenerator {
                 }
 
                 if (cur_ass.equals(assets.get(root_nb)))
-                    return null;
+                    break;
 
                 portfolio.add(cur_ass);
                 portfolio_ass.add(cur_ass.id_);

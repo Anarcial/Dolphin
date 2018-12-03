@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Then once I get a result that seems cool, I reduce the pace
  * and start over from the previous cool-looking result.
  * Let's say I start with a 0.25 pace
- * then go to 0.1
+ * then go to 0.1c
  * then 0.05
  * might work to find a local max.
  * Problem is, it's only a local max, so we might evade the global one...
@@ -32,15 +32,15 @@ public class Composition {
             res_portfolio.add(new Pair<>(1./portfolio_.size(), a));
         double best_sharpe = port_sharpe(res_portfolio);
         int strongest = 0;
-        while(PACE >= 0.01) {
+        while(PACE >= 0.01 && strongest < res_portfolio.size()) {
             ArrayList<Pair<Double, Asset>> new_port = new ArrayList<>();
             new_port.add(new Pair<>(res_portfolio.get(strongest).getKey() + PACE,
-                            res_portfolio.get(strongest).getValue()));
+                    res_portfolio.get(strongest).getValue()));
             double dif = PACE / 19.;
             for (int i = 0; i < 20; ++i) {
-                if (strongest != i) {
+                if (i != strongest) {
                     new_port.add(new Pair<>(res_portfolio.get(i).getKey() - dif,
-                                    res_portfolio.get(i).getValue()));
+                            res_portfolio.get(i).getValue()));
                 }
             }
             double new_sharpe = port_sharpe(new_port);
@@ -52,9 +52,6 @@ public class Composition {
             }
             else
                 ++strongest;
-
-            if (strongest >= res_portfolio.size())
-                strongest = 0;
         }
 
         return res_portfolio;
